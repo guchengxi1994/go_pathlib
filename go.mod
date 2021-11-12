@@ -1,3 +1,3 @@
-module github.com/guchengxi1994/go_pathlib
+module goPathlib
 
 go 1.16

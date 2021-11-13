@@ -5,7 +5,7 @@
  * @email: guchengxi1994@qq.com
  * @Date: 2021-11-12 18:57:31
  * @LastEditors: xiaoshuyui
- * @LastEditTime: 2021-11-12 20:58:24
+ * @LastEditTime: 2021-11-13 09:12:32
  */
 package goPathlib
 
@@ -66,4 +66,17 @@ func Split(p string) PathModel {
 	}
 	pathModel.Head = head
 	return pathModel
+}
+
+func SplitDrive(p string) PathModel {
+	var model PathModel
+	index := lFind(p, ":")
+	if index == -1 {
+		model.Head = p[:0]
+		model.Tail = p
+	}
+	model.Head = p[:index+1]
+	model.Tail = p[index+1:]
+
+	return model
 }

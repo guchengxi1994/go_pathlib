@@ -5,7 +5,7 @@ Author: xiaoshuyui
 email: guchengxi1994@qq.com
 Date: 2021-11-12 18:57:31
 LastEditors: xiaoshuyui
-LastEditTime: 2021-11-12 19:08:00
+LastEditTime: 2021-11-13 09:03:52
 '''
 import os
 
@@ -31,3 +31,7 @@ print(os.path.split(s2))
 print(os.path.split(s3))
 
 print(os.path.split(s4))
+
+print("====================================")
+
+print(os.path.splitdrive(s)) 

@@ -5,13 +5,13 @@
  * @email: guchengxi1994@qq.com
  * @Date: 2021-11-12 18:57:31
  * @LastEditors: xiaoshuyui
- * @LastEditTime: 2021-11-12 19:46:57
+ * @LastEditTime: 2021-11-13 08:26:57
  */
 package gopathlib_test
 
 import (
 	"fmt"
-	lib "goPathlib/src"
+	// lib "github.com/guchengxi1994/go_pathlib"
 	"path"
 	"testing"
 )
@@ -31,19 +31,19 @@ func Test_split_0(t *testing.T) {
 	fmt.Println(s[:0])
 }
 
-func Test_spilt(t *testing.T) {
-	s := "c:\\docs\\a.txt"
-	s2 := "c:\\docs\\a.tx\\t"
-	s3 := "a.txt"
-	s4 := "a..txt"
-	fmt.Println(lib.Split(s))
-	fmt.Println(lib.SplitExt(s))
-	fmt.Println(lib.Split(s2))
-	fmt.Println(lib.SplitExt(s2))
+// func Test_spilt(t *testing.T) {
+// 	s := "c:\\docs\\a.txt"
+// 	s2 := "c:\\docs\\a.tx\\t"
+// 	s3 := "a.txt"
+// 	s4 := "a..txt"
+// 	fmt.Println(lib.Split(s))
+// 	fmt.Println(lib.SplitExt(s))
+// 	fmt.Println(lib.Split(s2))
+// 	fmt.Println(lib.SplitExt(s2))
 
-	fmt.Println("==============================")
-	fmt.Println(lib.Split(s3))
-	fmt.Println(lib.SplitExt(s3))
-	fmt.Println(lib.Split(s4))
-	fmt.Println(lib.SplitExt(s4))
-}
+// 	fmt.Println("==============================")
+// 	fmt.Println(lib.Split(s3))
+// 	fmt.Println(lib.SplitExt(s3))
+// 	fmt.Println(lib.Split(s4))
+// 	fmt.Println(lib.SplitExt(s4))
+// }

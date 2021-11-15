@@ -9,6 +9,10 @@
  */
 package goPathlib
 
+import (
+	"strings"
+)
+
 func SplitExt(p string) PathExtModel {
 	var sepIndex int
 	pathModel := PathExtModel{}
@@ -62,7 +66,7 @@ func Split(p string) PathModel {
 	head, tail := p[:i], p[i:]
 	pathModel.Tail = tail
 	if head != "" && (head != sepWindows.Multiple(len(head)) || head != sepLinux.Multiple(len(head))) {
-		head = rSplit(head, string(p[i]))
+		head = rStrip(head, string(p[i]))
 	}
 	pathModel.Head = head
 	return pathModel
@@ -79,4 +83,54 @@ func SplitDrive(p string) PathModel {
 	model.Tail = p[index+1:]
 
 	return model
+}
+
+func Dirname(p string) string {
+	_p := strings.ReplaceAll(p, sepWindows.S, sepLinux.S)
+	index := rFind(_p, sepLinux.S)
+	if index == -1 {
+		return p
+	}
+	index = index + 1
+	head := p[:index]
+	if head != sepLinux.Multiple(len(head)) {
+		head = rStrip(head, sepLinux.S)
+	}
+	return head
+}
+
+func Basename(p string) string {
+	_p := strings.ReplaceAll(p, sepWindows.S, sepLinux.S)
+	index := rFind(_p, sepLinux.S)
+	if index == -1 {
+		return p
+	}
+	index = index + 1
+	return p[:index]
+}
+
+// Test whether a path is absolute
+func IsAbs(p string) bool {
+	_p := strings.ReplaceAll(p, sepWindows.S, sepLinux.S)
+	return string(_p[0]) == sepLinux.S
+}
+
+/*
+Join two or more pathname components, inserting '/' as needed.
+If any component is an absolute path, all previous path components
+will be discarded.  An empty last part will result in a path that
+ends with a separator.
+*/
+func Join(a string, args ...string) string {
+	_a := strings.ReplaceAll(a, sepWindows.S, sepLinux.S)
+	for _, v := range args {
+		if string(v[0]) == sepLinux.S {
+			_a = v
+		} else if v == "" || string(v[len(v)-1]) == sepLinux.S {
+			_a = _a + v
+		} else {
+			_a = _a + sepLinux.S + v
+		}
+	}
+	return _a
 }

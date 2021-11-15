@@ -52,3 +52,32 @@ results:
 ```
 
 ## I think python's results are better.
+
+# How to use
+
+## code:
+
+```go
+
+package main
+
+import (
+	"fmt"
+
+	lib "github.com/guchengxi1994/go_pathlib/src"
+)
+
+func main() {
+	s := "/home\\xiaoshuyui\\ax.txt"
+    // get extension
+	fmt.Printf("lib.SplitExt(s): %v\n", lib.SplitExt(s))
+    // get dirname
+	fmt.Printf("lib.SplitExt(s): %v\n", lib.Dirname(s))
+    // ...
+    // Split get head and tail
+    // SplitDrive get drive
+    // Basename get basename
+    // IsAbs test if a path is absolute
+}
+
+```

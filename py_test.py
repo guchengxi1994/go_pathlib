@@ -8,6 +8,7 @@ LastEditors: xiaoshuyui
 LastEditTime: 2021-11-13 09:03:52
 '''
 import os
+from pathlib import Path
 
 s = "c:\\docs\\a.txt"
 s2 = "c:\\docs\\a.tx\\t"
@@ -35,3 +36,14 @@ print(os.path.split(s4))
 print("====================================")
 
 print(os.path.splitdrive(s)) 
+
+print("==========================================")
+
+print(os.getcwd())
+
+print(Path.cwd())
+
+print("==========================================")
+
+print(os.path.islink("D:\github_repo\go_example\go.mod - 快捷方式.lnk"))
+print(os.utime("D:\github_repo\go_example\go.mod"))

@@ -38,7 +38,7 @@ func lFind(s, pattern string) int {
 }
 
 // remove the pattern on the right of a string
-func rSplit(s, pattern string) string {
+func rStrip(s, pattern string) string {
 	for i := len(s) - 1; i >= 0; i-- {
 		if string(s[i]) == pattern {
 			continue
